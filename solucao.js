@@ -14,12 +14,12 @@ function buscaBinaria(lista, alvo) {
     while (inicio <= fim) {
         let meio = Math.floor((inicio + fim) / 2);
 
-        // encontrou no meio
+        
         if (lista[meio] === alvo) {
             return meio;
         }
 
-        // o valor do meio é menor que o alvo, ent busca na metade direita
+        
         if (lista[meio] < alvo) {
             inicio = meio + 1;
         } 
@@ -47,10 +47,10 @@ async function testar(caminhoArquivo, alvo) {
     const numeros = [];
     let primeiraLinha = true;
 
-    // Processa o arquivo linha por linha para não estourar a memória
+    // processa o arquivo linha por linha pra n estourar a memória
     for await (let linha of leitorLinhas) {
         if (primeiraLinha) {
-            primeiraLinha = false; // Pula o cabeçalho "numero"
+            primeiraLinha = false; // pula o cabeçalho "numero"
             continue;
         }
         if (linha.trim()) {
@@ -60,7 +60,7 @@ async function testar(caminhoArquivo, alvo) {
 
     console.log("Total de elementos carregados:", numeros.length);
 
-    // Medição de tempo e execução da Busca Binária
+    // parteziha o tempo de busca
     console.time("Tempo de Busca");
     const posicao = buscaBinaria(numeros, alvo);
     console.timeEnd("Tempo de Busca");
