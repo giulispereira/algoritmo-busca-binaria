@@ -72,7 +72,7 @@ async function testar(caminhoArquivo, alvo) {
     }
 }
 
-// 3. EXECUÇÃO ASSÍNCRONA NOS TRÊS DATASETS
+
 async function executarTestes() {
     await testar('datasets/numeros_1M_ordenado.csv', 500000);
     await testar('datasets/numeros_10M_ordenado.csv', 500000);
