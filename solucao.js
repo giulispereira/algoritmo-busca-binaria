@@ -7,36 +7,33 @@
 const fs = require('fs');
 const readline = require('readline');
 
-// 1. FUNÇÃO DA BUSCA BINÁRIA (IMPLEMENTADA DO ZERO)
 function buscaBinaria(lista, alvo) {
     let inicio = 0;
     let fim = lista.length - 1;
 
-    // Enquanto o intervalo de busca for válido
     while (inicio <= fim) {
-        // Encontra a posição do meio arredondando para baixo
         let meio = Math.floor((inicio + fim) / 2);
 
-        // Caso 1: Encontrou o elemento no meio
+        // encontrou no meio
         if (lista[meio] === alvo) {
             return meio;
         }
 
-        // Caso 2: O valor do meio é menor que o alvo -> busca na metade direita
+        // o valor do meio é menor que o alvo, ent busca na metade direita
         if (lista[meio] < alvo) {
             inicio = meio + 1;
         } 
-        // Caso 3: O valor do meio é maior que o alvo -> busca na metade esquerda
+        // a busca foca na metade da esquerda
         else {
             fim = meio - 1;
         }
     }
 
-    // Se o elemento não existir no conjunto
+    //   número não foi encontrado na lista, aí retorna -1 para indicar isso
     return -1;
 }
 
-// 2. FUNÇÃO AUXILIAR PARA LER OS ARQUIVOS E TESTAR (LEITURA POR STREAM)
+// lê tudo picotadinho pra não ficar mto pesado
 async function testar(caminhoArquivo, alvo) {
     console.log("-----------------------------------------");
     console.log("Carregando arquivo:", caminhoArquivo);
@@ -57,7 +54,7 @@ async function testar(caminhoArquivo, alvo) {
             continue;
         }
         if (linha.trim()) {
-            numeros.push(parseInt(linha, 10));
+            numeros.push(parseInt(linha, 10)); // esse parseInt é pra transformar em nmr inteiro
         }
     }
 
